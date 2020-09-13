@@ -1,0 +1,12 @@
+The command to get top 3 biggest files in the filesystem is:
+
+du -ah /var | sort -n -r | head -n 3
+
+du command gives the space usage
+
+h  - human readable format (KB or GB)
+a  - all the files in the directory
+
+Using sort command we get the output in ordered format. -r is used to sort them in descending ordered
+
+head is used to print the first n elements here we are specifying 3 elements from the sorted list of files.
