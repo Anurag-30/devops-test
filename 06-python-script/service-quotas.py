@@ -1,6 +1,6 @@
 import boto3
 
-session = boto3.Session(profile_name='aft-target')
+session = boto3.Session(profile_name='anurag-test')
 client = session.client('service-quotas')
 
 #Enabling the Service Quota Template
@@ -24,27 +24,7 @@ try:
     AwsRegion='us-west-2',
     DesiredValue=100
    )
-   #Number of EBS Storage for General Purpose SSD (gp3) volumes, in TiB in one account from default 50 to 150
-   response = client.put_service_quota_increase_request_into_template(
-    QuotaCode='L-7A658B76',
-    ServiceCode='ebs',
-    AwsRegion='us-west-2',
-    DesiredValue=150
-   )
-   #Number of RDS DB instances in one account from default 40 to 100
-   response = client.put_service_quota_increase_request_into_template(
-    QuotaCode='L-7B6409FD',
-    ServiceCode='rds',
-    AwsRegion='us-west-2',
-    DesiredValue=100
-   )
-   #Number of RDS Parameter groups in one account from default 50 to 150
-   response = client.put_service_quota_increase_request_into_template(
-    QuotaCode='L-DE55804A',
-    ServiceCode='rds',
-    AwsRegion='us-west-2',
-    DesiredValue=100
-   )
+   
 
 except:
     print ("An error occured while processing the request")
